@@ -24,3 +24,15 @@ The script run_analysis.R should do the following:
  3. Use 'setwd()' to set the working directory in Rstudio to be the same as that containg the script.
  4. Run 'source(run_analysis.R)' to execute the script. This will generate a new file called 'StudyDataTidy.txt'.
  5. The data.table that is written to this file will be in Rstudio and called 'dataCast'.
+ 
+## Execution of run_analysis.R 
+
+The run_analysis.R script operates as follows:
+
+ 1. Load all the required data. This is everything in the original dataset excluding the files in the 'Inertial Signals' directorys.
+ 2. Use the features list to rename the columns in the 'test' and 'train' datasets
+ 3. Use grep & regex to subset the 'test' and 'train' datasets to keep just those columns labelled matching "mean()" or "std()".
+ 4. Combine each of the 'test' and 'train' data subsets with the Subject and numerical and descriptive Activity information.
+ 5. Merge the 'test' and 'train' data subsets including the Subject and Activity information
+ 6. Melt and recast the merged data to summarize it by mean as a function of both Activity and Subject.
+ 7. Finally the recast data is output to file.

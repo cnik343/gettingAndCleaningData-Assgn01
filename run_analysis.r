@@ -81,4 +81,4 @@ dataMerge <- as.data.table(rbind(dataTest,dataTrain))
 dataMelted <- melt(dataMerge, id = idLabels, measure.vars = measureLabels)
 dataCast <- dcast(dataMelted, Activity+Subject ~ variable, mean)
 
-write.table(dataCast, file = "./StudyDataTidy.txt")
+write.table(dataCast, file = "./StudyDataTidy.txt", row.name=FALSE)
