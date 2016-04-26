@@ -37,6 +37,7 @@ The original dataset includes the following files:
 - 'test/y_test.txt': Test labels.
 - 'train/subject_train.txt': Training set subject data. 
 - 'test/subject_test.txt': Testing set subject data.
+
 Each row of the 'subject_train.txt' and 'subject_test.txt' files identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 
 The following files are available for the train and test data. Their descriptions are equivalent. 
