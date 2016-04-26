@@ -143,7 +143,7 @@ The run_analysis.R script should be placed in the folder containing the original
 
  1. Load all the required data. This is everything in the original dataset excluding the files in the 'Inertial Signals' directorys.
  2. Use the features list to rename the columns in the 'test' and 'train' datasets
- 3. Use grep with regex to subset the 'test' and 'train' datasets to keep just those columns labelled matching "mean()" or "std()".
+ 3. Use grep & regex to subset the 'test' and 'train' datasets to keep just those columns labelled matching "mean()" or "std()".
  4. Combine each of the 'test' and 'train' data subsets with the Subject and numerical and descriptive Activity information.
  5. Merge the 'test' and 'train' data subsets including the Subject and Activity information
  6. Melt and recast the merged data to summarize it by mean as a function of both Activity and Subject.
