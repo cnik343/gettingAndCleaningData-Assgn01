@@ -16,7 +16,6 @@ library(data.table)
 # Remove everything from the workspace and set the working directory
 
 rm(list = ls())
-setwd('W://code//R-Stats//Coursera//03 - GettingAndCleaningData Assgn')
 
 # Define some directorys and load the required data...
 
@@ -39,7 +38,7 @@ names(xTrain) <- features[,2]
 
 # Subset the feature datasets to just include those requested (mean & SD)
 
-reqFeatures <- grepl("mean|std", features[,2])
+reqFeatures <- grepl("mean\\(\\)|std\\(\\)", features[,2])
 xTest  <-  xTest[,reqFeatures]
 xTrain <- xTrain[,reqFeatures]
 
@@ -52,7 +51,7 @@ xTrain <- xTrain[,reqFeatures]
 
 # Make a note of the column names for ID and measurement data...
 
-idLabels <- c("Subject", "Activity", "ActivityID", "Dataset")
+idLabels <- c("Subject", "ActivityID", "Activity", "Dataset")
 measureLabels <- as.character(features[reqFeatures,2])
 
 # First process the 'test' data...
