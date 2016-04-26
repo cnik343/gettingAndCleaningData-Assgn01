@@ -2,7 +2,7 @@
 
 This code book is intended to describe the experiment, the data and variables, and the transformations performed to clean up the data.
 
-## The data source
+## The Original Data
 
 * Original data source:
   https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
@@ -75,7 +75,7 @@ These signals were used to estimate variables of the feature vector for each pat
 - fBodyAccJerkMag
 - fBodyGyroMag
 - fBodyGyroJerkMag
-- 
+
 The set of variables that were estimated from these signals are: 
 
 - mean(): Mean value
@@ -105,6 +105,18 @@ Additional vectors obtained by averaging the signals in a signal window sample. 
 - tBodyGyroJerkMean
 
 The complete list of variables of each feature vector is available in 'features.txt'
+
+## Transformations and Tidy-Up
+
+The goal of the tidy data set is to present a clean, tidy and simplified version of the original data in a single file. To do this a script called 'run_analysis.R' was written. It has 5 goals...
+
+ 1 Merges the training and the test sets to create one data set.
+ 2 Extracts only the measurements on the mean and standard deviation for each measurement.
+ 3 Uses descriptive activity names to name the activities in the data set
+ 4 Appropriately labels the data set with descriptive variable names.
+ 5 From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+ 
 
 ## Notes: 
 
