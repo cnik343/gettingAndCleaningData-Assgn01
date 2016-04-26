@@ -1,6 +1,6 @@
 # CodeBook
 
-This code book is intended to describe the experiment, the data and variables, and the transformations performed to clean up the data.
+This code book is intended to describe the experiment, the data and variables, and the transformations performed to clean up the data. 
 
 ## The Original Data
 
@@ -8,8 +8,8 @@ This code book is intended to describe the experiment, the data and variables, a
   https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 * Original dataset description:
   http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
-
-## Experiment Information
+  
+## Experimental Information
 
 The experiments were carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope,  3-axial linear acceleration and 3-axial angular velocity were captured at a constant rate of 50Hz. The experiments were video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
@@ -110,13 +110,35 @@ The complete list of variables of each feature vector is available in 'features.
 
 The goal of the tidy data set is to present a clean, tidy and simplified version of the original data in a single file. To do this a script called 'run_analysis.R' was written. It has 5 goals...
 
- 1 Merges the training and the test sets to create one data set.
- 2 Extracts only the measurements on the mean and standard deviation for each measurement.
- 3 Uses descriptive activity names to name the activities in the data set
- 4 Appropriately labels the data set with descriptive variable names.
- 5 From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+ 1. Merge the training and the test sets to create one data set.
+ 2. Extract only the measurements on the mean and standard deviation for each measurement.
+ 3. Use descriptive activity names to name the activities in the data set
+ 4. Appropriately label the data set with descriptive variable names.
+ 5. From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject.
 
- 
+The resultant tidy data file is called 'StudyDataTidy.txt'. It consists of 180 rows and 68 columns. Each row contains the mean data for each of the permutations of the 30 subjects and the 6 activities. The first 2 columns give the Subject and Activity and the remaining 66 columns give the mean() and std() of each of the following 33 features (recall that -XYZ indicates 3-axial signals in the X, Y and Z directions):
+
+- tBodyAcc-XYZ
+- tGravityAcc-XYZ
+- tBodyAccJerk-XYZ
+- tBodyGyro-XYZ
+- tBodyGyroJerk-XYZ
+- tBodyAccMag
+- tGravityAccMag
+- tBodyAccJerkMag
+- tBodyGyroMag
+- tBodyGyroJerkMag
+- fBodyAcc-XYZ
+- fBodyAccJerk-XYZ
+- fBodyGyro-XYZ
+- fBodyAccMag
+- fBodyAccJerkMag
+- fBodyGyroMag
+- fBodyGyroJerkMag
+
+## Implementation of run_analysis.R 
+
+The script operates by loading all the required data, which is everything in the original dataset excluding the contents of the 'Inertial Signals' directorys. The features list is used to rename the columns in the 'test' and 'train' datasets and then grep is used with regex to subset the 'test' and 'train' datasets to keep just those columns labelled matching "mean()" or "std()". Each of the 'test' and 'train' subsets are combined with the subject and numerical and descriptive activity data, and then the 2 datasets are merged. The merged data is then melted and recast to summarize it by mean as a function of both Activity and Subject. Finally the recast data is output to file.
 
 ## Notes: 
 
