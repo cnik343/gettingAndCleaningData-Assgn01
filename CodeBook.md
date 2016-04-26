@@ -139,7 +139,14 @@ The resultant tidy data file is called 'StudyDataTidy.txt'. It consists of 180 r
 
 ## Implementation of run_analysis.R 
 
-The script operates by loading all the required data, which is everything in the original dataset excluding the contents of the 'Inertial Signals' directorys. The features list is used to rename the columns in the 'test' and 'train' datasets and then grep is used with regex to subset the 'test' and 'train' datasets to keep just those columns labelled matching "mean()" or "std()". Each of the 'test' and 'train' subsets are combined with the subject and numerical and descriptive activity data, and then the 2 datasets are merged. The merged data is then melted and recast to summarize it by mean as a function of both Activity and Subject. Finally the recast data is output to file.
+The run_analysis.R script operates as follows:
+ 1. Load all the required data, which is everything in the original dataset excluding the contents of the 'Inertial Signals' directorys.
+ 2. Use the features list to rename the columns in the 'test' and 'train' datasets
+ 3. Use grep with regex to subset the 'test' and 'train' datasets to keep just those columns labelled matching "mean()" or "std()".
+ 4. Combine each of the 'test' and 'train' data subsets with the Subject and numerical and descriptive Activity information.
+ 5. Merge the 'test' and 'train' data subsets including the Subject and Activity information
+ 6. Melt and recast the merged data to summarize it by mean as a function of both Activity and Subject.
+ 7. Finally the recast data is output to file.
 
 ## Notes: 
 
