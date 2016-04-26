@@ -139,8 +139,9 @@ The resultant tidy data file is called 'StudyDataTidy.txt'. It consists of 180 r
 
 ## Implementation of run_analysis.R 
 
-The run_analysis.R script operates as follows:
- 1. Load all the required data, which is everything in the original dataset excluding the contents of the 'Inertial Signals' directorys.
+The run_analysis.R script should be placed in the folder containing the original "UCI HAR Dataset" directory and operates as follows:
+
+ 1. Load all the required data. This is everything in the original dataset excluding the 18 files in the 'Inertial Signals' subdirectorys.
  2. Use the features list to rename the columns in the 'test' and 'train' datasets
  3. Use grep with regex to subset the 'test' and 'train' datasets to keep just those columns labelled matching "mean()" or "std()".
  4. Combine each of the 'test' and 'train' data subsets with the Subject and numerical and descriptive Activity information.
